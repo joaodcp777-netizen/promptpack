@@ -4,7 +4,6 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>50 Prompts para Emprendedores — Domina ChatGPT</title>
-<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -88,14 +87,6 @@ src="https://www.facebook.com/tr?id=1605615104063667&ev=PageView&noscript=1"
     transition: transform .15s, box-shadow .15s;
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(163,255,71,.3); }
-
-
-  /* ── STRIPE BUY BUTTON ── */
-  .stripe-wrap {
-    width: 100%; display: flex; justify-content: center;
-    margin-bottom: 14px;
-  }
-  stripe-buy-button { width: 100%; }
 
   /* ── HERO ── */
   .hero {
@@ -263,6 +254,49 @@ src="https://www.facebook.com/tr?id=1605615104063667&ev=PageView&noscript=1"
   .testi-name { font-size: .84rem; font-weight: 600; color: var(--white); }
   .testi-role { font-size: .74rem; color: var(--muted); }
 
+
+  /* ── BUY BANNER ── */
+  .buy-banner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(163,255,71,.12), rgba(163,255,71,.04));
+    border: 1px solid rgba(163,255,71,.35);
+    border-radius: 12px;
+    padding: 20px 22px;
+    text-decoration: none;
+    margin-bottom: 14px;
+    transition: transform .15s, box-shadow .15s, border-color .15s;
+    position: relative; overflow: hidden;
+  }
+  .buy-banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent, rgba(163,255,71,.06), transparent);
+    transform: translateX(-100%);
+    transition: transform .5s;
+  }
+  .buy-banner:hover::before { transform: translateX(100%); }
+  .buy-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(163,255,71,.2);
+    border-color: rgba(163,255,71,.55);
+  }
+  .buy-banner-left { display: flex; flex-direction: column; gap: 3px; }
+  .buy-banner-price { display: flex; align-items: baseline; gap: 2px; }
+  .buy-currency { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--acid); }
+  .buy-amount { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 2.8rem; color: var(--white); line-height: 1; }
+  .buy-banner-desc { font-size: .75rem; color: var(--muted); }
+  .buy-banner-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  .buy-banner-btn {
+    background: var(--acid); color: #080808;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: .88rem;
+    padding: 11px 18px; border-radius: 7px;
+    display: flex; align-items: center; gap: 7px;
+    white-space: nowrap;
+  }
+  .buy-banner-methods { display: flex; gap: 5px; align-items: center; }
+
   /* ── PRICING ── */
   .pricing-wrap { max-width: 480px; margin: 48px auto 0; background: var(--card); border: 1px solid rgba(163,255,71,.3); border-radius: 20px; overflow: hidden; }
   .pricing-top { background: linear-gradient(135deg, rgba(163,255,71,.1), transparent); padding: 38px; text-align: center; border-bottom: 1px solid var(--border); }
@@ -310,7 +344,7 @@ src="https://www.facebook.com/tr?id=1605615104063667&ev=PageView&noscript=1"
 <!-- NAV -->
 <nav>
   <div class="nav-logo">PromptPack <span>PRO</span></div>
-  <a href="checkout.html" target="_blank" class="nav-cta" onclick="fbq('track', 'InitiateCheckout')">Acceso — $7</a>
+  <a href="https://promptpack-lime.vercel.app/checkout.html" class="nav-cta" onclick="fbq('track', 'InitiateCheckout')">Acceso — $7</a>
 </nav>
 
 <!-- HERO -->
@@ -320,7 +354,7 @@ src="https://www.facebook.com/tr?id=1605615104063667&ev=PageView&noscript=1"
   <h1>Haz que ChatGPT trabaje<br/>para <em>tu negocio</em></h1>
   <p class="hero-sub">50 prompts listos para usar. Sin aprender nada complejo. Copia, personaliza, pega. Ahorra horas cada semana desde el primer día.</p>
   <div class="hero-actions">
-    <a href="checkout.html" target="_blank" class="btn-primary" onclick="fbq('track', 'InitiateCheckout')">↓ Quiero los 50 Prompts</a>
+    <a href="https://promptpack-lime.vercel.app/checkout.html" class="btn-primary" onclick="fbq('track', 'InitiateCheckout')">↓ Quiero los 50 Prompts</a>
     <a href="#como-funciona" class="btn-ghost">Ver cómo funciona</a>
   </div>
   <div class="price-badge">
@@ -477,14 +511,29 @@ src="https://www.facebook.com/tr?id=1605615104063667&ev=PageView&noscript=1"
       <div class="feature-item"><div class="feature-check">✓</div><span>Entrega inmediata tras la compra</span></div>
     </div>
     <div class="pricing-cta">
-      <div class="stripe-wrap">
-        <stripe-buy-button
-          buy-button-id="buy_btn_1TDrFrL4dkQYeEUDRDYJ1JJU"
-          publishable-key="pk_live_51KAxkyL4dkQYeEUDyXnh2PZhe42XNB5oAiv4GZjc2MKhfTZNcW7U24Gi9SU6QS9p78huVlyE91pxclnxSg3GiyKS00pHsSccxa"
-        ></stripe-buy-button>
-      </div>
+      <a href="https://promptpack-lime.vercel.app/checkout.html" class="buy-banner" onclick="fbq('track', 'InitiateCheckout')">
+        <div class="buy-banner-left">
+          <div class="buy-banner-price">
+            <span class="buy-currency">$</span>
+            <span class="buy-amount">7</span>
+          </div>
+          <div class="buy-banner-desc">Pago único · Acceso de por vida</div>
+        </div>
+        <div class="buy-banner-right">
+          <div class="buy-banner-btn">
+            Obtener acceso ahora
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="buy-banner-methods">
+            <svg width="26" height="18" viewBox="0 0 38 24" fill="none"><rect width="38" height="24" rx="4" fill="#1A1F71"/><text x="4" y="16" font-family="Helvetica" font-weight="bold" font-size="10" fill="white">VISA</text></svg>
+            <svg width="26" height="18" viewBox="0 0 38 24" fill="none"><rect width="38" height="24" rx="4" fill="#252525"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="23" cy="12" r="7" fill="#F79E1B"/><path d="M19 7.3a7 7 0 0 1 0 9.4A7 7 0 0 1 19 7.3z" fill="#FF5F00"/></svg>
+            <svg width="26" height="18" viewBox="0 0 38 24" fill="none"><rect width="38" height="24" rx="4" fill="#000"/><text x="6" y="16" font-family="Helvetica" font-weight="bold" font-size="8" fill="white">Apple Pay</text></svg>
+            <svg width="26" height="18" viewBox="0 0 38 24" fill="none"><rect width="38" height="24" rx="4" fill="#fff"/><text x="2" y="16" font-family="Helvetica" font-weight="bold" font-size="7.5" fill="#4285F4">Google</text></svg>
+          </div>
+        </div>
+      </a>
       <p class="guarantee">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Garantía de satisfacción de 7 días
       </p>
     </div>
@@ -497,7 +546,7 @@ src="https://www.facebook.com/tr?id=1605615104063667&ev=PageView&noscript=1"
   <h2>Tu competencia ya está<br/>usando IA. ¿Y tú?</h2>
   <p class="section-sub">No necesitas saber nada de tecnología. Solo necesitas estos 50 prompts y 5 minutos libres.</p>
   <div class="hero-actions">
-    <a href="checkout.html" target="_blank" class="btn-primary" onclick="fbq('track', 'InitiateCheckout')">Obtener los 50 Prompts — $7</a>
+    <a href="https://promptpack-lime.vercel.app/checkout.html" class="btn-primary" onclick="fbq('track', 'InitiateCheckout')">Obtener los 50 Prompts — $7</a>
   </div>
 </section>
 
