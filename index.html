@@ -256,66 +256,60 @@ src="https://www.facebook.com/tr?id=1605615104063667&ev=PageView&noscript=1"
 
 
   /* ── BUY BANNER ── */
- /* ── BUY BANNER ── */
   .buy-banner {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 16px;
+    display: block;
     background: linear-gradient(135deg, rgba(163,255,71,.1), rgba(163,255,71,.04));
     border: 1px solid rgba(163,255,71,.35);
     border-radius: 12px;
-    padding: 22px 24px;
+    padding: 24px;
     text-decoration: none;
     margin-bottom: 14px;
     transition: transform .15s, box-shadow .15s;
-    position: relative; overflow: hidden;
   }
   .buy-banner:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(163,255,71,.2);
   }
-  .buy-banner-left {
-    display: flex; flex-direction: column; gap: 2px;
-    flex-shrink: 0;
-  }
   .buy-banner-price {
-    display: flex; align-items: baseline; gap: 2px;
-    line-height: 1;
+    display: flex; align-items: baseline; justify-content: center; gap: 6px;
+    margin-bottom: 6px;
   }
   .buy-currency {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800; font-size: 1.1rem;
-    color: var(--acid);
+    font-weight: 800; font-size: 1rem; color: var(--acid);
   }
   .buy-amount {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 800; font-size: 3rem;
-    color: var(--white); line-height: 1;
+    font-weight: 800; font-size: 3.8rem; color: var(--white); line-height: 1;
   }
-  .buy-banner-desc { font-size: .72rem; color: var(--muted); margin-top: 4px; }
-  .buy-banner-right {
-    display: flex; flex-direction: column;
-    align-items: stretch; gap: 10px;
-    flex: 1; min-width: 0;
+  .buy-price-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: .85rem; color: var(--muted);
+    align-self: center;
   }
+  .buy-banner-desc { font-size: .78rem; color: var(--muted); margin-bottom: 18px; text-align: center; }
   .buy-banner-btn {
+    width: 100%;
     background: var(--acid); color: #080808;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700; font-size: .9rem;
-    padding: 13px 16px; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center; gap: 7px;
-    white-space: nowrap; text-align: center;
+    font-weight: 700; font-size: 1rem;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-bottom: 14px;
   }
   .buy-banner-methods {
-    display: flex; gap: 5px; align-items: center; justify-content: center;
+    display: flex; gap: 6px; align-items: center; justify-content: center;
+    flex-wrap: wrap;
   }
   .pay-chip {
     background: rgba(255,255,255,.06);
     border: 1px solid rgba(255,255,255,.1);
     border-radius: 5px;
-    padding: 3px 8px;
-    font-size: .65rem; font-weight: 600;
-    color: var(--muted); white-space: nowrap;
-  } { display: flex; gap: 5px; align-items: center; }
+    padding: 4px 10px;
+    font-size: .7rem; font-weight: 600;
+    color: var(--muted);
+  }
 
   /* ── PRICING ── */
   .pricing-wrap { max-width: 480px; margin: 48px auto 0; background: var(--card); border: 1px solid rgba(163,255,71,.3); border-radius: 20px; overflow: hidden; }
@@ -531,27 +525,23 @@ src="https://www.facebook.com/tr?id=1605615104063667&ev=PageView&noscript=1"
       <div class="feature-item"><div class="feature-check">✓</div><span>Entrega inmediata tras la compra</span></div>
     </div>
     <div class="pricing-cta">
-     <a href="https://promptpack-lime.vercel.app/checkout.html" class="buy-banner" onclick="fbq('track', 'InitiateCheckout')">
-  <div class="buy-banner-left">
-    <div class="buy-banner-price">
-      <span class="buy-currency">$</span>
-      <span class="buy-amount">7</span>
-    </div>
-    <div class="buy-banner-desc">Pago único<br/>Acceso de por vida</div>
-  </div>
-  <div class="buy-banner-right">
-    <div class="buy-banner-btn">
-      Obtener acceso ahora
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </div>
-    <div class="buy-banner-methods">
-      <span class="pay-chip">VISA</span>
-      <span class="pay-chip">Mastercard</span>
-      <span class="pay-chip">Apple Pay</span>
-      <span class="pay-chip">Google Pay</span>
-    </div>
-  </div>
-</a>
+      <a href="https://promptpack-lime.vercel.app/checkout.html" class="buy-banner" onclick="fbq('track', 'InitiateCheckout')">
+        <div class="buy-banner-price">
+          <span class="buy-amount">7</span>
+          <span class="buy-price-label">US$</span>
+        </div>
+        <div class="buy-banner-desc">Pago único · Acceso de por vida · Sin suscripción</div>
+        <div class="buy-banner-btn">
+          Obtener acceso ahora
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <div class="buy-banner-methods">
+          <span class="pay-chip">VISA</span>
+          <span class="pay-chip">Mastercard</span>
+          <span class="pay-chip">Apple Pay</span>
+          <span class="pay-chip">Google Pay</span>
+        </div>
+      </a>
       <p class="guarantee">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Garantía de satisfacción de 7 días
